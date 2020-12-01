@@ -10,7 +10,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 public class HttpServer {
-	
+	  
 	public static final String WEB_ROOT=
 			System.getProperty("user.dir")+File.separator+
 			"webroot";

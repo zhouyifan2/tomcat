@@ -2,7 +2,7 @@ package ex01.encode;
 
 import java.io.UnsupportedEncodingException;
 
-public class TestEncode {
+public class TestEncode { 
 	public static void main(String[] args) {
 		String name="你好";
 		try {

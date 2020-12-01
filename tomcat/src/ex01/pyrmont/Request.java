@@ -32,7 +32,7 @@ public class Request {
 		System.out.println(request.toString());
 		uri=parseUri(request.toString());
 	}
-
+  
 	private String parseUri(String requestString){
 		int index1,index2;
 		index1=requestString.indexOf(' ');

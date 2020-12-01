@@ -42,7 +42,7 @@ public class Response {
 						            "<h1>File Not Found</h1>";
 				output.write(errorMessage.getBytes());				
 			}			
-	    }catch (Exception e) {
+	    }catch (Exception e) {  
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	  }finally{
