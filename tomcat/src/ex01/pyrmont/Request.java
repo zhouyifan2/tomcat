@@ -16,7 +16,6 @@ public class Request {
 
 	public void prase() throws UnsupportedEncodingException {
 		StringBuffer request=new StringBuffer(2048);
-		InputStreamReader inputStreamReader = new InputStreamReader(input);
 		int i;
 		byte[] buffer=new byte[2048];
 		try {
