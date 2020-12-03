@@ -51,6 +51,7 @@ public class HttpServer1 {
 				//create Response object
 				Response response=new Response(output);
 				response.setRequest(request);
+				
 				if(request.getUri().startsWith("/servlet/")){
 					ServletProcessor1 processor=new ServletProcessor1();
 					processor.process(request,response);

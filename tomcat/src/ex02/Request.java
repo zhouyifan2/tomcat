@@ -59,8 +59,7 @@ public class Request implements ServletRequest{
 
 
 	public String getUri() {
-		// TODO Auto-generated method stub
-		return null;
+		return uri;
 	}
 
 
