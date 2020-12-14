@@ -68,14 +68,14 @@ public class HttpServer1 {
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}finally{
+			}/*finally{
 				if(input!=null){
 					input.close();
 				}
 				if(output!=null){
 					output.close();
 				}
-			}
+			}*/
 			
 		}
 		

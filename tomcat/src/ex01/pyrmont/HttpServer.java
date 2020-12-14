@@ -62,7 +62,7 @@ public class HttpServer {
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}finally{
+			}/*finally{
 				if(input!=null){
 					input.close();
 				}
@@ -70,7 +70,7 @@ public class HttpServer {
 					output.close();
 				}
 			}
-			
+			*/
 		}
 		
 	}

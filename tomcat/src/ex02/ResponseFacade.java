@@ -1,55 +1,28 @@
 package ex02;
 
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.util.Enumeration;
 import java.util.Locale;
+import java.util.Map;
 
+import javax.servlet.AsyncContext;
+import javax.servlet.DispatcherType;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletInputStream;
 import javax.servlet.ServletOutputStream;
+import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+public class ResponseFacade implements ServletResponse{
 
-public class Response implements ServletResponse{
-   
-	private static int BUFFER_SIZE=1024;
-	Request request;
-	OutputStream output;
-	PrintWriter writer;
-	public Response(OutputStream output) {
-		this.output=output;
-	}
-
-	public void setRequest(Request request) {
-		this.request=request;
-		
-	}
-	public void sendStaticResource() throws IOException {
-		byte[] bytes=new byte[BUFFER_SIZE];
-		FileInputStream fis=null;
-		try {
-		    String childpath=request.getUri();
-		    File file = new File(Constants.WEB_ROOT,childpath);
-		    fis=new FileInputStream(file);
-			int ch=fis.read(bytes, 0, BUFFER_SIZE);
-			while(ch!=-1){
-			    output.write(bytes,0,ch);
-			    ch=fis.read(bytes, 0, BUFFER_SIZE);
-		   }			
-	    }catch (Exception e) {  
-		  e.printStackTrace();
-		  String errorMessage="HTTP/1.1 404 File Not Find\r\n"+
-                  "Content-Type:text/html\r\n"+
-		            "Content-Length:23\r\n"+
-                  "\r\n"+
-		            "<h1>File Not Found</h1>";
-            output.write(errorMessage.getBytes());		
-	  }/*finally{
-		  if(fis!=null){
-			  fis.close();
-		  }
-	  }*/
+	private ServletResponse response=null;
+	
+	public ResponseFacade(Response response){
+		this.response=response;
 	}
 	@Override
 	public void flushBuffer() throws IOException {
@@ -89,8 +62,8 @@ public class Response implements ServletResponse{
 
 	@Override
 	public PrintWriter getWriter() throws IOException {
-        writer=new PrintWriter(output,true);
-		return writer;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
@@ -146,5 +119,6 @@ public class Response implements ServletResponse{
 		// TODO Auto-generated method stub
 		
 	}
+
 
 }

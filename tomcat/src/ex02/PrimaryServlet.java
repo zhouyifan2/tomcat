@@ -37,7 +37,9 @@ public class PrimaryServlet implements Servlet {
 	@Override
 	public void service(ServletRequest request, ServletResponse response)
 			throws ServletException, IOException {
-		 response.getWriter().println("Hello World");
+		 System.out.println("handler........");
+		 response.getWriter().println("hello.....");
+		 
           
 	}
 

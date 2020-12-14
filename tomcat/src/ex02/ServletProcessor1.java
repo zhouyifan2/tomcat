@@ -14,8 +14,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 public class ServletProcessor1 {
-	//map容器，存入所有Servlet
-	private static Map<String,Servlet> map=new HashMap<String,Servlet>();
+
 
 	public void process(Request request, Response response){
 		String uri = request.getUri();
@@ -44,16 +43,11 @@ public class ServletProcessor1 {
 		
 		Servlet servlet=null;
 		try {
-			servlet=map.get(servletName);
-			if(servlet!=null){
-				servlet.service((ServletRequest)request, (ServletResponse)response);
-				System.out.println("I am exist");
-			}else{
-				servlet=(Servlet) myClass.newInstance();
-				servlet.service((ServletRequest)request, (ServletResponse)response);
-				System.out.println("I am new");
-				map.put(servletName, servlet);
-			}			
+			servlet=(Servlet) myClass.newInstance();
+			
+			//ServletRequest r=(ServletRequest)request;
+			servlet.service((ServletRequest)request, (ServletResponse)response);
+					
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
